@@ -1,9 +1,11 @@
-#include <iostream>
-#include <stdlib.h>
+#include <iostream> // cout, cin
+#include <stdio.h> // NULL
+#include <stdlib.h> // srand
+#include <time.h> // time
 #include <vector>
 #include "GameOfLife.h"
-#include <chrono>
-#include <thread>
+#include <chrono> // seconds()
+#include <thread> // sleep_for
 
 int main() {
     menu();
@@ -12,7 +14,7 @@ int main() {
 void menu() {
     int option = -1;
     while (option != 3) {
-        std::cout << "Welcome to Conway's Game of Life by Van" << std::endl;
+        std::cout << std::endl << "Welcome to Conway's Game of Life by Van" << std::endl;
         // TODO: Display currently selected options.
         std::cout << "Please select an option from the menu:" << std::endl;
         std::cout << "1 - Start a new game" << std::endl;
@@ -47,6 +49,8 @@ void menu() {
 }
 
 void newGame() {
+    // Seed random number.
+    srand(time(NULL));
     int lifeCount = starting;
     for (int i = 0; i < height; i++) {
         std::vector<int> x;
